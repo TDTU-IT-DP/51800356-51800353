@@ -102,6 +102,162 @@ Bổ sung thêm các hành động, phần mở rộng bất cứ khi nào một
 
 <div align="center">
 
-<img src="![Picture1](https://user-images.githubusercontent.com/75523801/170717076-1f8d6140-1e36-4dc6-9911-02649c64fc26.png)" alt="Class Diagram" width="1000">
+<img src="https://user-images.githubusercontent.com/75523801/170717076-1f8d6140-1e36-4dc6-9911-02649c64fc26.png" alt="Proxy Pattern Diagram">
+
+Sơ đồ lớp tổng quát của Proxy Pattern
 
 </div>
+
+Các đối tượng tham gia vào Proxy Pattern:
+- Subject: Là một Interface định nghĩa các phương thức giao tiếp với client. Nó xác định giao diện chung cho RealSubject (đối tượng thực) và Proxy.
+- RealSubject: Là một lớp dịch vụ sẽ thực hiện các thao tác, chức năng thực sự khi có yêu cầu từ phía client.
+- Proxy: Là một lớp đại diện cho RealSubject nhằm thực hiện các xử lý các yêu cầu trước và sau khi nó được gửi đến RealSubject. Proxy duy trì một tham chiếu đến đối tượng của RealSubject nhằm truy cập/truy xuất dữ liệu của lớp này.
+- Client: Đối tượng sử dụng RealSubject nhưng phải thông qua Proxy.
+
+##### 4.1.2. Đặt vấn đề
+
+Theo như những gì chúng ta đã tìm hiểu, Proxy Pattern được sử dụng để kiểm tra các điều kiện nhất định. Một số đối tượng hoặc tài nguyên cần ủy quyền thích hợp để truy cập chúng, do đó, sử dụng Proxy Pattern là một trong những cách để kiểm tra các điều kiện này. Với Proxy Pattern, chúng ta sẽ kiểm soát quyền truy cập đến các đối tượng linh hoạt hơn.
+
+Ví dụ, chúng ta muốn kiểm soát quyền truy cập vào tài nguyên hệ thống có nhiều loại người dùng. Ở trong hệ thống, chúng ta sẽ có người dùng được phép xem hoặc chỉnh sửa tài nguyên, và một số người khác có thể thực hiện xem, xóa, sửa với tài nguyên.
+Giả sử chúng ta có một lớp interface Parent có phương thức là doExam(). Đồng thời ta cũng có một lớp Child implement đến lớp Parent và override phương thức doExam().
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/75523801/170719007-7b13b3cd-5b98-47bd-90c6-ba3ad4f93245.png" alt="Proxy Pattern Diagram">
+
+Cấu trúc đối tượng ban đầu
+
+</div>
+
+Nếu muốn bổ sung các ràng buộc để đối tượng Child phải thỏa mãn thì mới thực hiện hàm doExam(), chúng ta phải thêm các câu lệnh vào trong hàm doExam() hoặc phải viết thêm một phương thức mới checkDoExam(). Sau đó thêm câu lệnh kiểm tra vào hàm doExam().
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/75523801/170719047-be3606b0-66d5-405d-9e6b-9b26422410d7.png" alt="Proxy Pattern Diagram">
+
+Thêm phương thức checkDoExam vào lớp Child
+
+</div>
+
+Vì trường hợp đưa ra ở đây chỉ có một hàm doExam() nên chúng ta thấy đơn giản. Nếu mà lớp Parent có rất nhiều phương thức và lớp Child phải override các phương thức này thì chắc chắn sẽ phải viết rất nhiều câu lệnh kiểm tra hoặc viết thêm các hàm mới. Nhưng nếu làm như vậy, chúng ta sẽ thay đổi cấu trúc của những lớp, hàm, phương thức đã viết trước đó. Điều này là một điều tối kỵ trong lập trình. Bởi vì nếu làm như vậy, chúng ta đã vi phạm nguyên tắc đóng mở trong lập trình. Mặt khác, nếu sửa đổi source code của module hoặc lớp có sẵn, nếu không may ta sẽ làm ảnh hưởng đến tính đúng đắn của chương trình. Hơn nữa, nếu tiến hành sửa trực tiếp trên các lớp có sẵn, nếu bị lỗi thì chương trình sẽ không thực thi được như ý muốn.
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/75523801/170719520-128ec638-77ef-4c1c-aa7e-6f946cb3fe3f.png" alt="Proxy Pattern Diagram">
+
+Mỗi phương thức được override từ lớp cha phải thêm các phương thức kiểm tra
+
+</div>
+
+Vì vậy chúng ta cần tạo lớp mới, ta nên kế thừa và mở rộng các module/class có sẵn. Ở trong ví dụ này, cần tạo một lớp Protection Proxy và implement lớp Parent. Các sửa đổi về điều kiện sẽ được thêm vào các hàm override từ lớp Parent.
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/75523801/170719539-9f5e127b-cd08-4344-9143-8bab34c78360.png" alt="Proxy Pattern Diagram">
+
+Áp dụng Protection Proxy để giải quyết vấn đề của cấu trúc đối tượng trên
+
+</div>
+
+##### 4.1.3. Áp dụng Proxy Pattern vào ví dụ cụ thể
+
+Khi chúng ta áp dụng Protection Proxy, có nghĩa là chúng ta sẽ không thay đổi trong các lớp đã được tạo trước đó mà ta sẽ tạo thêm lớp Proxy mới. nhằm thực hiện các xử lý các yêu cầu trước khi nó được gửi đến lớp Person. Proxy duy trì một tham chiếu đến đối tượng của lớp Person nhằm truy cập/truy xuất dữ liệu của lớp này. Chúng ta sẽ đặt tên cho lớp Proxy này là PersonProtectProxy. Lớp này sẽ kế thừa từ interface Action và nó sẽ có 3 thuộc tính là name, role và person. 4 chức năng openFile, readFile, writeFile và closeFile sẽ thêm các ràng buộc điều kiện. Chỉ khi người dùng có vai trò là “Admin”, “Manager” mới có thể thực thi 4 chức năng này.
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/75523801/170720841-d9b43a93-7b77-49a0-9cb3-3e8547482ce7.png" alt="Proxy Pattern Diagram">
+
+Cấu trúc đối tượng truy xuất file ban đầu
+
+</div>
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/75523801/170721240-b4c88f16-49ce-4941-8466-66db5ba24757.png" alt="Proxy Pattern Diagram">
+
+Sơ đồ lớp của cấu trúc đối tượng sau khi áp dụng Protection Proxy 
+
+</div>
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/75523801/170728333-071da23f-0600-42f1-81ee-252fe205164b.png" alt="Proxy Pattern Diagram">
+</div>
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/75523801/170728344-f8cb6229-cc4b-40da-b1ad-f4ff3dfa0d73.png" alt="Proxy Pattern Diagram">
+
+Code của lớp PersonProtectProxy
+
+</div>
+
+Tiếp theo, tiến hành tạo hàm Main để thực thi chương trinh sau khi áp dụng Protection Proxy. Chúng ta cũng sẽ khởi tạo 2 đối tượng person1, person2, thuộc kiểu PersonProtectProxy với tên gọi và vai trò lần lượt là (Cuong, Admin), (Chuyen, Accountant). Sau đó sẽ gọi 4 phương thức openFile, readFile, writeFile, closeFile.
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/75523801/170721259-264cd668-d462-41e9-8704-51a7c9c7fe36.png" alt="Proxy Pattern Diagram">
+
+Thực thi chương trình sau khi áp dụng Protection Proxy Pattern
+
+</div>
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/75523801/170721557-c7dd727e-030c-4b24-afa4-a7b6621500e2.png" alt="Proxy Pattern Diagram">
+
+Kết quả thực thi chương trình sau khi áp dụng Protection Proxy Pattern
+
+</div>
+
+
+##### 4.1.4. Tóm tắt Proxy Pattern
+
+Tên Pattern: Proxy.
+
+Nhóm Pattern: nhóm cấu trúc.
+
+Định nghĩa: Proxy là một mẫu thiết kế cho phép ta cung cấp thêm một đối tượng, lớp thay thế cho lớp gốc ban đầu. Lớp Proxy đại diện cho đối tượng gốc đó, do đó nó sẽ kiểm soát quyền truy cập đối này. Tất cả các truy cập trực tiếp đến một đối tượng gốc ban đầu sẽ được chuyển vào lớp trung gian Proxy. Lớp này cho phép thêm điều kiện, thực hiện một điều gì đó trước khi yêu cầu được chuyển đến đối tượng gốc.
+
+Sơ đồ lớp tổng quát:
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/75523801/170729192-de4d217b-a4e1-4c7b-861c-ccb0203f586e.png" alt="Proxy Pattern Diagram">
+
+Kết quả thực thi chương trình sau khi áp dụng Protection Proxy Pattern
+
+</div>
+
+Các thành phần trong sơ đồ lớp tổng quát:
+- Subject: Là một Interface định nghĩa các phương thức giao tiếp với client. Nó xác định phương thức chung cho RealSubject (đối tượng thực) và Proxy.
+- RealSubject: Là một lớp sẽ thực hiện các thao tác, chức năng thực sự khi có yêu cầu từ phía client.
+- Proxy: Là một lớp đại diện cho RealSubject nhằm thực hiện các xử lý các yêu cầu trước và sau đó nó được gửi đến lớp RealSubject. Proxy duy trì một tham chiếu đến đối tượng của RealSubject nhằm truy cập/truy xuất dữ liệu của lớp này.
+- Client: Đối tượng sử dụng RealSubject nhưng phải thông qua Proxy.
+
+Vấn đề áp dụng: Khi muốn bổ sung các điều kiện vào các lớp có sẵn, chúng ta không thể trực tiếp sửa đổi các source code này vì làm như vậy sẽ vi phạm nguyên tắc đóng mở trong lập trình. Vì vậy, cần phải tạo một lớp Proxy mới, lớp này sẽ kiểm tra các điều kiện trước khi gọi đến các đối tượng gốc ban đầu.
+
+Các bài toán nên sử dụng Proxy Pattern: 
+- Kiểm soát quyền truy xuất các phương thức của đối tượng.
+- Bổ sung thêm các chức năng, ràng buộc điều kiện trước khi thực thi phương thức của đối tượng gốc
+- Bổ sung các phương thức, chức năng mới cho đối tượng gốc mà không sửa đổi code của nó.
+- Tiết kiệm bộ nhớ, thời gian khi có nhiều truy cập vào các đối tượng có chi phí khởi tạo lớn.
+- Khi muốn theo dõi trạng thái và vòng đời đối tượng	
+- Khi đối tượng gốc nằm trong hệ thống cũ hoặc thư viện bên thứ 3.
+
+Ưu điểm:
+- Proxy góp phần làm tăng tính bảo mật cho chương trình bằng cách thêm các điều kiện trước khi gọi tới lớp có sẵn.
+- Proxy khá là dễ áp dụng vào các dự án.
+- Proxy có thể giúp cải thiện hiệu suất của ứng dụng bằng cách lưu vào bộ nhớ đệm các đối tượng nặng hoặc các đối tượng được truy cập thường xuyên.
+- Lập trình viên có thể kiểm soát được chức năng, dịch vụ mà không cần phía máy khách biết về nó.
+- Lập trình viên có thể quản lý của vòng đời của chức năng khi mà phía máy khách không quan tâm đến nó
+- Proxy hoạt động ngay cả khi dịch vụ không sẵn sàng hoặc không có sẵn.
+
+Khuyết điểm:
+- Code sẽ trở nên phức tạp hơn khi phải tạo ra nhiều lớp proxy mới.
+- Phản hồi từ đối tượng dịch vụ của thể bị chậm trễ.
+
+
+##### 4.1.5. Kết luận
+
+Với sự đa dạng và các ưu điểm của Proxy Pattern, lập trình viên có thể tận dụng pattern này để thiết kế code cũng như là hệ thống trở nên linh hoạt, hoạt động tốt hơn mà vẫn đảm bảo sự toàn vẹn của các lớp đối tượng ban đầu.
