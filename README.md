@@ -260,6 +260,7 @@ Khuyết điểm:
 
 ##### 4.1.5. Kết luận
 
+<<<<<<< HEAD
 Với sự đa dạng và các ưu điểm của Proxy Pattern, lập trình viên có thể tận dụng pattern này để thiết kế code cũng như là hệ thống trở nên linh hoạt, hoạt động tốt hơn mà vẫn đảm bảo sự toàn vẹn của các lớp đối tượng ban đầu.
 
 #### 4.2. Visitor Pattern
@@ -506,3 +507,6 @@ Khuyết điểm:
 
 Đối với bài toán cho việc thêm phương thức mới cho các đối tượng mà không làm thay đổi lớp hiện tại của chúng có thể được giải quyết bởi Visitor Pattern. Nhờ cách thức hoạt động mà khi áp dụng pattern này, lập trình viên có thể dễ dàng mở rộng hệ thống thông qua việc mở rộng các phương thức của lớp đối tượng. Để cho việc mở rộng, phát triển hệ thống trong tương lai được trở nên dễ dàng, thuận tiện thì lập trình viên cần xem xét kĩ càng hơn để áp dụng Visitor Design Pattern vào trong hệ thống. Bên cạnh những ưu điểm thì tất nhiên Visitor Design Pattern cũng sẽ có một số khuyết điểm vì thế, lập trình viên nên tận dụng các Pattern khác để hạn chế khuyết điểm và khiến hệ thống trở lên mạnh mẽ, linh hoạt hơn.
 
+=======
+Với sự đa dạng và các ưu điểm của Proxy Pattern, lập trình viên có thể tận dụng pattern này để thiết kế code cũng như là hệ thống trở nên linh hoạt, hoạt động tốt hơn mà vẫn đảm bảo sự toàn vẹn của các lớp đối tượng ban đầu.
+>>>>>>> 53203d116a5488e4edf30b41e52c407600096448
