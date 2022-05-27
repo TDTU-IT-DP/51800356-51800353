@@ -102,7 +102,7 @@ Bổ sung thêm các hành động, phần mở rộng bất cứ khi nào một
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/75523801/170717076-1f8d6140-1e36-4dc6-9911-02649c64fc26.png" alt="Proxy Pattern Diagram">
+<img src="https://user-images.githubusercontent.com/75523801/170717076-1f8d6140-1e36-4dc6-9911-02649c64fc26.png">
 
 Sơ đồ lớp tổng quát của Proxy Pattern
 
@@ -123,7 +123,7 @@ Giả sử chúng ta có một lớp interface Parent có phương thức là do
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/75523801/170719007-7b13b3cd-5b98-47bd-90c6-ba3ad4f93245.png" alt="Proxy Pattern Diagram">
+<img src="https://user-images.githubusercontent.com/75523801/170719007-7b13b3cd-5b98-47bd-90c6-ba3ad4f93245.png">
 
 Cấu trúc đối tượng ban đầu
 
@@ -133,7 +133,7 @@ Nếu muốn bổ sung các ràng buộc để đối tượng Child phải th�
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/75523801/170719047-be3606b0-66d5-405d-9e6b-9b26422410d7.png" alt="Proxy Pattern Diagram">
+<img src="https://user-images.githubusercontent.com/75523801/170719047-be3606b0-66d5-405d-9e6b-9b26422410d7.png">
 
 Thêm phương thức checkDoExam vào lớp Child
 
@@ -143,7 +143,7 @@ Vì trường hợp đưa ra ở đây chỉ có một hàm doExam() nên chúng
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/75523801/170719520-128ec638-77ef-4c1c-aa7e-6f946cb3fe3f.png" alt="Proxy Pattern Diagram">
+<img src="https://user-images.githubusercontent.com/75523801/170719520-128ec638-77ef-4c1c-aa7e-6f946cb3fe3f.png">
 
 Mỗi phương thức được override từ lớp cha phải thêm các phương thức kiểm tra
 
@@ -153,7 +153,7 @@ Vì vậy chúng ta cần tạo lớp mới, ta nên kế thừa và mở rộng
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/75523801/170719539-9f5e127b-cd08-4344-9143-8bab34c78360.png" alt="Proxy Pattern Diagram">
+<img src="https://user-images.githubusercontent.com/75523801/170719539-9f5e127b-cd08-4344-9143-8bab34c78360.png">
 
 Áp dụng Protection Proxy để giải quyết vấn đề của cấu trúc đối tượng trên
 
@@ -165,7 +165,7 @@ Khi chúng ta áp dụng Protection Proxy, có nghĩa là chúng ta sẽ không 
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/75523801/170720841-d9b43a93-7b77-49a0-9cb3-3e8547482ce7.png" alt="Proxy Pattern Diagram">
+<img src="https://user-images.githubusercontent.com/75523801/170720841-d9b43a93-7b77-49a0-9cb3-3e8547482ce7.png">
 
 Cấu trúc đối tượng truy xuất file ban đầu
 
@@ -173,7 +173,7 @@ Cấu trúc đối tượng truy xuất file ban đầu
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/75523801/170721240-b4c88f16-49ce-4941-8466-66db5ba24757.png" alt="Proxy Pattern Diagram">
+<img src="https://user-images.githubusercontent.com/75523801/170721240-b4c88f16-49ce-4941-8466-66db5ba24757.png">
 
 Sơ đồ lớp của cấu trúc đối tượng sau khi áp dụng Protection Proxy 
 
@@ -181,12 +181,12 @@ Sơ đồ lớp của cấu trúc đối tượng sau khi áp dụng Protection 
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/75523801/170728333-071da23f-0600-42f1-81ee-252fe205164b.png" alt="Proxy Pattern Diagram">
+<img src="https://user-images.githubusercontent.com/75523801/170728333-071da23f-0600-42f1-81ee-252fe205164b.png">
 </div>
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/75523801/170728344-f8cb6229-cc4b-40da-b1ad-f4ff3dfa0d73.png" alt="Proxy Pattern Diagram">
+<img src="https://user-images.githubusercontent.com/75523801/170728344-f8cb6229-cc4b-40da-b1ad-f4ff3dfa0d73.png">
 
 Code của lớp PersonProtectProxy
 
@@ -196,7 +196,7 @@ Tiếp theo, tiến hành tạo hàm Main để thực thi chương trinh sau kh
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/75523801/170721259-264cd668-d462-41e9-8704-51a7c9c7fe36.png" alt="Proxy Pattern Diagram">
+<img src="https://user-images.githubusercontent.com/75523801/170721259-264cd668-d462-41e9-8704-51a7c9c7fe36.png">
 
 Thực thi chương trình sau khi áp dụng Protection Proxy Pattern
 
@@ -204,7 +204,7 @@ Thực thi chương trình sau khi áp dụng Protection Proxy Pattern
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/75523801/170721557-c7dd727e-030c-4b24-afa4-a7b6621500e2.png" alt="Proxy Pattern Diagram">
+<img src="https://user-images.githubusercontent.com/75523801/170721557-c7dd727e-030c-4b24-afa4-a7b6621500e2.png">
 
 Kết quả thực thi chương trình sau khi áp dụng Protection Proxy Pattern
 
@@ -223,7 +223,7 @@ Sơ đồ lớp tổng quát:
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/75523801/170729192-de4d217b-a4e1-4c7b-861c-ccb0203f586e.png" alt="Proxy Pattern Diagram">
+<img src="https://user-images.githubusercontent.com/75523801/170729192-de4d217b-a4e1-4c7b-861c-ccb0203f586e.png">
 
 Kết quả thực thi chương trình sau khi áp dụng Protection Proxy Pattern
 
